@@ -1,14 +1,28 @@
 @import '../variables';
 
 .categories {
+  max-width: calc(100% - 260px);
+  overflow-x: scroll;
+  margin-bottom: 10px;
+  &::-webkit-scrollbar {
+    height: 5px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #f9f9f9;
+    border-radius: 20px;
+  }
+  @media (max-width: 740px) {
+    max-width: 100%;
+  }
   ul {
     display: flex;
-
+    margin-bottom: 5px;
     li {
       background-color: #f9f9f9;
       padding: 13px 30px;
-      border-radius: 30px;
       margin-right: 10px;
+      border-radius: 30px;
+      text-align: center;
       font-weight: bold;
       cursor: pointer;
       transition: background-color 0.1s ease-in-out;
