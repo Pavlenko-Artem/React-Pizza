@@ -8,8 +8,6 @@ import NotFound from './pages/NotFound';
 function App() {
   const [searchValue, setSearchValue] = useState('');
 
-  console.log('Текст поиска', searchValue);
-
   return (
     <div className='wrapper'>
       <Header

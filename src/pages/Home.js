@@ -4,6 +4,7 @@ import Categories from '../components/Categories';
 import Sort from '../components/Sort';
 import PizzaBlock from '../components/PizzaBlock';
 import Skeleton from '../components/PizzaBlock/Skeleton';
+import Pagination from '../components/Pagination';
 
 const Home = (props) => {
   const { searchValue } = props;
@@ -58,6 +59,7 @@ const Home = (props) => {
               />
             ))}
       </div>
+      <Pagination />
     </>
   );
 };
