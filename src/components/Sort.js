@@ -13,8 +13,6 @@ function Sort(props) {
     { name: 'алфавиту (ASC)', sortProperty: '-title' },
   ];
 
-  console.log('value', value);
-
   const onClickListItem = (i) => {
     onChangeSort(i);
     setOpen(false);
