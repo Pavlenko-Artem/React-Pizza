@@ -11,19 +11,12 @@ import Pagination from '../components/Pagination';
 
 const Home = () => {
   const dispatch = useDispatch();
-  const categoryId = useSelector((state) => state.filter.categoryId);
+  const { categoryId, sortType } = useSelector((state) => state.filter);
+  // const sortType = useSelector((state) => state.filter.sort);
   const { searchValue } = useContext(SearchContext);
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
-  const [sortType, setSortType] = useState({
-    name: 'популярности',
-    sortProperty: 'rating',
-  });
-
-  const onChangeCategory = (id) => {
-    dispatch(setCategoryId(id));
-  };
 
   useEffect(() => {
     setLoading(true);
@@ -49,12 +42,9 @@ const Home = () => {
       <div className='content__top'>
         <Categories
           value={categoryId}
-          onChangeCategory={(id) => onChangeCategory(id)}
+          onChangeCategory={(id) => dispatch(setCategoryId(id))}
         />
-        <Sort
-          value={sortType}
-          onChangeSort={(obj) => setSortType(obj)}
-        />
+        <Sort />
       </div>
       <h2 className='content__title'>Все пиццы</h2>
       <div className='content__items'>
