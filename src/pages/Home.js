@@ -11,6 +11,7 @@ const Home = (props) => {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const [categoryId, setCategoryId] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
   const [sortType, setSortType] = useState({
     name: 'популярности',
     sortProperty: 'rating',
@@ -25,7 +26,7 @@ const Home = (props) => {
     const search = searchValue.length > 0 ? `search=${searchValue}` : '';
 
     fetch(
-      `https://6389cb934eccb986e89a9f07.mockapi.io/items?${category}&sortBy=${sortBy}&order=${order}&${search}`,
+      `https://6389cb934eccb986e89a9f07.mockapi.io/items?page=${currentPage}&limit=4&${category}&sortBy=${sortBy}&order=${order}&${search}`,
     )
       .then((res) => res.json())
       .then((arr) => {
@@ -33,7 +34,7 @@ const Home = (props) => {
         setLoading(false);
       });
     window.scrollTo(0, 0);
-  }, [categoryId, sortType, searchValue]);
+  }, [categoryId, sortType, searchValue, currentPage]);
 
   return (
     <>
@@ -59,7 +60,7 @@ const Home = (props) => {
               />
             ))}
       </div>
-      <Pagination />
+      <Pagination onChangePage={(number) => setCurrentPage(number)} />
     </>
   );
 };
