@@ -31,7 +31,6 @@ const Home = () => {
         `https://6389cb934eccb986e89a9f07.mockapi.io/items?page=${currentPage}&limit=4&${category}&sortBy=${sortBy}&order=${order}&${search}`,
       )
       .then((res) => {
-        console.log(res);
         setItems(res.data);
         setLoading(false);
       });
