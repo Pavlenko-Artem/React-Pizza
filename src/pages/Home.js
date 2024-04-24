@@ -55,7 +55,7 @@ const Home = () => {
       <h2 className='content__title'>Все пиццы</h2>
       <div className='content__items'>
         {loading
-          ? [...new Array(6)].map((_, index) => <Skeleton key={index} />)
+          ? [...new Array(4)].map((_, index) => <Skeleton key={index} />)
           : items.map(({ id, category, ...pizza }) => (
               <PizzaBlock
                 {...pizza}
